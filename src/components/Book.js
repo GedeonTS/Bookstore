@@ -1,13 +1,13 @@
 import React from 'react';
 
 function Book(props) {
-  const { name, author } = props;
+  const { n, a } = props;
   return (
     <div>
       <div>
-        {name}
+        {n}
         by
-        {author}
+        {a}
       </div>
       <button type="button">Delete</button>
     </div>
