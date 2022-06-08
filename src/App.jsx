@@ -1,7 +1,7 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Books from "./components/Books";
-import Categories from "./components/Categories";
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Books from './components/Books';
+import Categories from './components/Categories';
 
 function App() {
   return (
