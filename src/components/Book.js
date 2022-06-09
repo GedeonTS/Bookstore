@@ -5,8 +5,8 @@ function Book(props) {
   return (
     <div>
       <div>
-        {n}
-        by
+        {n}{"  "}
+        by{"  "}
         {a}
       </div>
       <button type="button">Delete</button>
