@@ -1,20 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
 
 const Books = () => {
-  const bookArray = [
-    { name: 'GEDEON', author: 'USHINDI' },
-    { name: 'ADRIEL', author: 'TSHOBOHWA' },
-  ];
+  const data = useSelector((state) => state.booksReducer);
+  const bookArray = data;
 
   return (
     <section>
       this will display a list of books!
       {
-        bookArray.map((x) => (
+        bookArray.map((BookItem) => (
           <div>
-            <Book n={x.name} a={x.author} />
+            <Book key={BookItem.id} n={BookItem.book} a={BookItem.author} id={BookItem.id} />
           </div>
         ))
       }
