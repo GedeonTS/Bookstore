@@ -1,11 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, connect } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
+import { getBooks } from '../redux/books/books';
 
-const Books = () => {
+const Books = ({ getUsers }) => {
   const data = useSelector((state) => state.booksReducer);
   const bookArray = data;
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   return (
     <section>
@@ -13,7 +18,7 @@ const Books = () => {
       {
         bookArray.map((BookItem) => (
           <div>
-            <Book key={BookItem.id} n={BookItem.book} a={BookItem.author} id={BookItem.id} />
+            <Book key={BookItem.item_id} book={BookItem} />
           </div>
         ))
       }
@@ -24,4 +29,6 @@ const Books = () => {
   );
 };
 
-export default Books;
+const dispatchToProps = (dispatch) => ({ getUsers: () => dispatch(getBooks()) });
+
+export default connect(null, dispatchToProps)(Books);
