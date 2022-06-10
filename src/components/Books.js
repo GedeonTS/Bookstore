@@ -13,8 +13,7 @@ const Books = ({ getUsers }) => {
   }, []);
 
   return (
-    <section>
-      this will display a list of books!
+    <section className="container">
       {
         bookArray.map((BookItem) => (
           <div>
@@ -22,8 +21,6 @@ const Books = ({ getUsers }) => {
           </div>
         ))
       }
-      <button type="button">Delete all</button>
-      here is the form generating the books!
       <Form />
     </section>
   );
