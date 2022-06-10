@@ -4,17 +4,13 @@ import Book from './Book';
 import Form from './Form';
 import { getBooks } from '../redux/books/books';
 
-
 const Books = ({ getUsers }) => {
   const data = useSelector((state) => state.booksReducer);
   const bookArray = data;
 
   useEffect(() => {
-    getUsers()
-  }, [])
-
-  // axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/8TVVPPLWS79K4DeolqFW/books')
-  //   .then(response => console.log(response.data))
+    getUsers();
+  }, []);
 
   return (
     <section>
@@ -33,6 +29,6 @@ const Books = ({ getUsers }) => {
   );
 };
 
-const dispatchToProps = (dispatch) => ({ getUsers: () => dispatch(getBooks()) })
+const dispatchToProps = (dispatch) => ({ getUsers: () => dispatch(getBooks()) });
 
 export default connect(null, dispatchToProps)(Books);

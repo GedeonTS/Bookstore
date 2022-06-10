@@ -1,40 +1,40 @@
-import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 const ADD_BOOK = 'bookstore/src/redux/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/src/redux/books/REMOVE_BOOK';
+const FETCH_BOOK = 'bookstore/src/redux/books/FETCH_BOOK';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/8TVVPPLWS79K4DeolqFW/books';
 
-const init = [
-  {
-    book: 'ODESSEY',
-    author: 'VIKTOR',
-    id: { uuidv4 },
-  },
-  {
-    book: 'REMEMBERANCE',
-    author: 'VASILLY',
-    id: { uuidv4 },
-  },
-  {
-    book: 'GUILT',
-    author: 'TOLSTOY',
-    id: { uuidv4 },
-  }];
+const init = [];
 
 export default function booksReducer(state = init, action) {
   switch (action.type) {
     case ADD_BOOK: {
-      const obj = {
-        id: { uuidv4 },
+      const newData = {
+        item_id: `book${Date.now()}`,
         author: action.newBook.author,
-        book: action.newBook.book,
+        title: action.newBook.book,
+        category: 'fiction',
 
       };
-      return [...state, obj];
+
+      const newStateData = [`book${Date.now()}`, [{
+        author: action.newBook.author,
+        title: action.newBook.book,
+        category: 'fiction',
+      }]];
+
+      axios.post(URL, newData);
+      return [...state, newStateData];
     }
     case REMOVE_BOOK: {
-      const newState = state.filter((book) => book.id !== action.id);
+      axios.delete(`${URL}/${action.itemId}`);
+      const newState = state.filter((book) => book[0] !== action.itemId);
       return newState;
     }
+
+    case FETCH_BOOK:
+      return action.newBook;
 
     default:
       return state;
@@ -43,4 +43,13 @@ export default function booksReducer(state = init, action) {
 
 export const addBook = (newBook) => ({ type: ADD_BOOK, newBook });
 
-export const removeBook = (id) => ({ type: REMOVE_BOOK, id });
+export const removeBook = (itemId) => ({ type: REMOVE_BOOK, itemId });
+
+export const getBooks = () => (dispatch) => {
+  axios.get(URL).then(
+    (response) => {
+      const data = Object.entries(response.data);
+      dispatch({ type: FETCH_BOOK, newBook: data });
+    },
+  );
+};

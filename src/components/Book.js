@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
 function Book(props) {
-  const [id, [bookItem]] = props.book
+  const [id, [bookItem]] = props.book;
   const dispatch = useDispatch();
   return (
     <div>

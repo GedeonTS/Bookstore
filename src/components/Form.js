@@ -10,7 +10,10 @@ const Form = () => {
     const field = e.target.name;
     switch (field) {
       case 'book':
-        setState({ book: e.target.value, author: bookItem.author });
+        setState({
+          book: e.target.value,
+          author: bookItem.author,
+        });
         break;
       case 'author':
         setState({
