@@ -87,7 +87,8 @@ h1 {
   margin-bottom: 1.5rem;
   border: solid 1px var(--white-two);
   background-color: var(--white-bg-color);
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .book-details {
@@ -99,6 +100,12 @@ h1 {
   list-style: none;
   padding-left: 0;
   display: flex;
+  margin-left: o;
+  margin-top: 20px;
+}
+
+#btn-comments {
+  padding-left: 0;
 }
 
 .book-details p {
@@ -119,7 +126,7 @@ h1 {
   padding: 0;
   font-family: 'Roboto Slab',sans-serif;
   letter-spacing: -0.2px;
-  font-size: 1.375rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -201,7 +208,60 @@ width: 50%;
     color: var(--cool-blue);
   }
 
+  article {
+    display: flex;
+    align-items: center;
+  }
+
   article:hover {
     box-shadow: 6px 7px 10px var(--white-two);
     transition: all ease-in-out 0.6s;
   }
+
+  .progress-image {
+    width: 30%;
+    margin-left: 7%;
+  }
+
+  .image-item {
+    width:100%;
+  }
+
+  .chapter-section {
+    border-left: solid 1px var(--white-two);
+    padding-left:2rem ;
+  }
+
+.chapter-section h3 {
+  font-family:  'Montserrat',sans-serif;
+  color: var(--warm-grey);
+  font-size: 0.813rem;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.chapter-section h5 {
+  font-family:  'Roboto Slab',sans-serif;
+  color: var(--black-two);
+  font-size: 0.713rem;
+  font-weight: bold;
+  padding-top: 0.3rem;
+  margin-top: 0;
+}
+
+.chapter-section button {
+  background-color: var(--cool-blue);
+  border:solid 1px var(--white-bg-color);
+  color:var(--white-two);
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-family: 'Roboto Slab',sans-serif;
+}
+
+.chapter-section button:hover {
+  background-color: var(--white-two);
+  border:solid 1px var(--cool-blue);
+  color:var(--cool-blue);
+  transition: all ease-in-out 0.3s;
+
+}
