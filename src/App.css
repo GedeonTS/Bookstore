@@ -265,3 +265,9 @@ width: 50%;
   transition: all ease-in-out 0.3s;
 
 }
+
+.image-contact {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 50%;
+}
