@@ -35,7 +35,7 @@ const Form = () => {
       <form className="input-form">
         <Inputs className="book-name-input" name="book" placeholder="book title" function={currentInput} />
         <Inputs className="author-name-input" name="author" placeholder="author name" function={currentInput} />
-        <button type="button" onClick={() => dispatch(addBook(bookItem))}>Add Book</button>
+        <button type="button" onClick={() => dispatch(addBook(bookItem))}>ADD BOOK</button>
       </form>
     </section>
   );
