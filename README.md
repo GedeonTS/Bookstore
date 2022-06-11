@@ -2,6 +2,10 @@
 
 # Bookstore
 
+ |            Description              |
+ |--------------------------------|
+ |![Screenshot from 2022-06-11 16-56-42](https://user-images.githubusercontent.com/97834160/173193160-1496b5c2-ffed-43ab-b83d-f5c6e89357e0.png)
+
 > A list of books project, with the functionly of adding and removing books.
 
 
@@ -15,8 +19,7 @@
 
 ## Live Demo (if available)
 
-<!-- [Live Demo Link](https://livedemo.com) -->
-Coming soon!
+[Live Demo Link](https://bookstorets.netlify.app/)
 
 
 ## Getting Started
